@@ -651,6 +651,11 @@ int __attribute__((__noreturn__)) main(void)
     GICR = (1 << IVSEL); /* move interrupts to boot flash section */
 #endif
     if(bootLoaderCondition()){
+    
+    /* Prende el LED */
+    DDRD |= 1 << 1;   /* salida del LED */
+    PORTD |= 1 << 1;
+    
 #if NEED_WATCHDOG
 #	if (defined(MCUSR) && defined(WDRF))
 	/* 
