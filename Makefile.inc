@@ -1,12 +1,12 @@
 # Name: Makefile.inc
 # Project: USBaspLoader (updater)
-# Author: Stephan Bärwolf
+# Author: Stephan BÃ¤rwolf
 # Creation Date: 2012-09-01
 # Tabsize: 4
 # License: GNU GPL v2 (see License.txt)
 
 F_CPU = 16000000
-DEVICE = atmega8
+DEVICE = atmega168
 
 # where the updating firmware should be located (starting address)
 FLASHADDRESS = 0x0000
@@ -23,7 +23,7 @@ DANGEROUS=0
 
 # PROGRAMMER contains AVRDUDE options to address your programmer
 # PROGRAMMER = -c pony-stk200
-PROGRAMMER = -c usbasp
+PROGRAMMER = -P usb -c avrispmkii
 
 #  since USBaspLoader supports HAVE_BLB11_SOFTW_LOCKBIT...
 LOCKOPT = -U lock:w:0x3f:m
@@ -323,4 +323,3 @@ CC=@$(AVRPATH)avr-gcc
 OBC=@$(AVRPATH)avr-objcopy
 OBD=@$(AVRPATH)avr-objdump
 SIZ=@$(AVRPATH)avr-size
-
